@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>BR-DOCS</title>
+    <meta charset="utf-8" />
+
+    <!-- Not necessary, just for tests -->
+    <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    <script src="/src/ie.js"></script>
+    <script src="/src/cpf.js"></script>
+    <script src="/src/cnpj.js"></script>
+    <script src="/src/pis.js"></script>
+
+    <style>
+        html, body { 
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            width: 50%;
+            margin: 0 auto;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td, tr, th {
+            border: 1px solid #ccc;
+            padding: 5px;
+        }
+
+        .TRUE td.column-valid {
+            color: #269872;
+            text-align: center;
+        }
+
+        .FALSE td.column-valid {
+            color: #d02e2e;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="4">TESTS</th>
+                </tr>
+                <tr>
+                    <th>DOC/ID</th>
+                    <th>NUMBER</th>
+                    <th>DETAILS</th>
+                    <th>VALID</th>
+                </tr>
+            </thead>
+            <tbody id="items"></tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    var template = '<tr class="{{valid}}"><td>{{doc}}</td><td>{{number}}</td><td>{{details}}</td><td class="column-valid">{{valid}}</td></tr>',
+        validIes = [{ state: 'sp', number: '527.012.306.552' }, { state: 'pa', number: '15-378971-9' }, { state: 'ma', number: '12231403-4' }],
+        validCpfs = ['513.505.215-15', '783.657.272-26', '302.471.512-62'],
+        validCnpjs = ['96.785.019/0001-60', '57.401.192/0001-65', '11.600.721/0001-59'],
+        validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
+        $area = $('#items');
+
+    for (var i = 0; i < validIes.length; i++) {
+        var number = validIes[i].number,
+            state = validIes[i].state,
+            valid = IE.validar(number, state);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'IE')
+                .replace('{{number}}', number)
+                .replace('{{details}}', 'state: ' + state)
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validCpfs.length; i++) {
+        var number = validCpfs[i],
+            valid = CPF.validar(number);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'CPF')
+                .replace('{{number}}', number)
+                .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validCnpjs.length; i++) {
+        var number = validCnpjs[i],
+            valid = CNPJ.validar(number);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'CNPJ')
+                .replace('{{number}}', number)
+                .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validPises.length; i++) {
+        var number = validPises[i],
+            valid = PIS.validar(number);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'PIS')
+                .replace('{{number}}', number)
+                .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+</script>
