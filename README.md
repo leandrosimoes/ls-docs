@@ -57,3 +57,23 @@ Validation for the most commom personal Brazilian documents (ID's).
     //120.7507.914-7 is a valid PIS sample
     PIS.validar('120.7507.914-7'); //true or false
 ```
+
+#### CNH
+``` html
+    <!-- Add this in your page -->
+    <script src="cnh.js"></script>
+```
+
+``` javascript
+    //05493872845 is a valid CNH sample
+    CNH.validar('05493872845'); //true or false
+```
+
+### All JS in one
+
+If you don't want to add each one javascript file in your page, just use this global file to get all objects and functions:
+
+``` html
+    <!-- Add this in your page -->
+    <script src="br-docs.js"></script>
+```
