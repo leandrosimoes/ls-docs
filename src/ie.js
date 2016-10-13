@@ -1,4 +1,4 @@
-﻿; (function (window, document, commonjs) {
+; (function (window, document, commonjs) {
     'use strict';
 
     var UFS = ["ac", "al", "am", "ap", "ba", "ce", "df", "es", "go",
@@ -542,10 +542,6 @@
                 throw new Error('ie deve ser fornecida');
             }
 
-            if (Array.isArray(ie)) {
-                return ie.map(function (ie) { return isValid(ie, uf); });
-            }
-
             if (typeof ie !== 'string') {
                 throw new Error('ie deve ser string ou array de strings');
             }
@@ -563,32 +559,32 @@
             return false;
         },
         temEstadoValido: function (ie) {
-            var valid = false;
+            var valido = false;
             if (!!UFS) {
                 for (var i = 0; i < UFS.length; i++) {
-                    if (!valid) {
-                        valid = IE.isValid(ie, UFS[i]);
+                    if (!valido) {
+                        valido = IE.validar(ie, UFS[i]);
                     }
                 }
 
-                return valid;
+                return valido;
             }
 
-            return valid;
+            return valido;
         },
         obterEstadoValido: function (ie) {
-            var ufValid = '';
+            var estadoValido = '';
             if (!!UFS) {
                 for (var i = 0; i < UFS.length; i++) {
-                    if (IE.isValid(ie, UFS[i])) {
-                        ufValid = UFS[i];
+                    if (IE.validar(ie, UFS[i])) {
+                        estadoValido = UFS[i];
                     }
                 }
 
-                return ufValid || '';
+                return estadoValido || '';
             }
 
-            return ufValid;
+            return estadoValido;
         }
     }
 
