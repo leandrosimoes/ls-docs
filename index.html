@@ -8,6 +8,7 @@
     <script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
     <script src="/src/br-docs.js"></script>
+    <script src="/src/te.js"></script>
 
     <style>
         html, body { 
@@ -68,6 +69,7 @@
         validCnpjs = ['96.785.019/0001-60', '57.401.192/0001-65', '11.600.721/0001-59'],
         validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
         validCnhs = ['17471014748', '05493872845', '17222849758'],
+        validTes = ['721761811708', '757813481783', '438576861716'],
         $area = $('#items');
 
     for (var i = 0; i < validIes.length; i++) {
@@ -134,6 +136,20 @@
         $area.append(
             template
                 .replace('{{doc}}', 'CNH')
+                .replace('{{number}}', number)
+                .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validTes.length; i++) {
+        var number = validTes[i],
+            valid = TE.validar(number, true);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'TE')
                 .replace('{{number}}', number)
                 .replace('{{details}}', '')
                 .replace('{{valid}}', valid.toString().toUpperCase())
