@@ -69,6 +69,17 @@ Validation for the most commom personal Brazilian documents (ID's).
     CNH.validar('05493872845'); //true or false
 ```
 
+#### TE (Título de eleitor)
+``` html
+    <!-- Add this in your page -->
+    <script src="te.js"></script>
+```
+
+``` javascript
+    //721761811708 is a valid TE sample
+    TE.validar('721761811708'); //true or false
+```
+
 ### All JS in one
 
 If you don't want to add each one javascript file in your page, just use this global file to get all objects and functions:
