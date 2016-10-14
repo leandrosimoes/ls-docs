@@ -69,6 +69,7 @@
         validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
         validCnhs = ['17471014748', '05493872845', '17222849758'],
         validTes = ['721761811708', '757813481783', '438576861716'],
+        validCCs = [{ brand: CC.cartoes.visa, number: '4539.8633.3204.0867' }, { brand: CC.cartoes.mastercard, number: '5557.6618.0397.3341' }, { brand: CC.cartoes.amex, number: '3464.3231.7114.245' }, { brand: CC.cartoes.dinersClub, number: '3024.2888.3095.17' }, { brand: CC.cartoes.jcb, number: '3595.5927.6443.8033' }, { brand: CC.cartoes.discover, number: '6011.3325.2630.9860' }],
         $area = $('#items');
 
     for (var i = 0; i < validIes.length; i++) {
@@ -151,6 +152,21 @@
                 .replace('{{doc}}', 'TE')
                 .replace('{{number}}', number)
                 .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validIes.length; i++) {
+        var number = validCCs[i].number,
+            brand = validCCs[i].brand,
+            valid = CC.validar(number, brand);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'CC')
+                .replace('{{number}}', number)
+                .replace('{{details}}', 'brand: ' + brand)
                 .replace('{{valid}}', valid.toString().toUpperCase())
                 .replace('{{valid}}', valid.toString().toUpperCase())
         );
