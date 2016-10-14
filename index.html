@@ -69,6 +69,7 @@
         validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
         validCnhs = ['17471014748', '05493872845', '17222849758'],
         validTes = ['721761811708', '757813481783', '438576861716'],
+        validCRCs = ['RS-021871/O', '1SP-114273/O-0', 'MG-060762/O'],
         $area = $('#items');
 
     for (var i = 0; i < validIes.length; i++) {
@@ -130,7 +131,7 @@
 
     for (var i = 0; i < validCnhs.length; i++) {
         var number = validCnhs[i],
-            valid = CNH.validar(number, true);
+            valid = CNH.validar(number);
 
         $area.append(
             template
@@ -144,11 +145,25 @@
 
     for (var i = 0; i < validTes.length; i++) {
         var number = validTes[i],
-            valid = TE.validar(number, true);
+            valid = TE.validar(number);
 
         $area.append(
             template
                 .replace('{{doc}}', 'TE')
+                .replace('{{number}}', number)
+                .replace('{{details}}', '')
+                .replace('{{valid}}', valid.toString().toUpperCase())
+                .replace('{{valid}}', valid.toString().toUpperCase())
+        );
+    }
+
+    for (var i = 0; i < validCRCs.length; i++) {
+        var number = validCRCs[i],
+            valid = CRC.validar(number);
+
+        $area.append(
+            template
+                .replace('{{doc}}', 'CRC')
                 .replace('{{number}}', number)
                 .replace('{{details}}', '')
                 .replace('{{valid}}', valid.toString().toUpperCase())

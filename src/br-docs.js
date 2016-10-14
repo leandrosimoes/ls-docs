@@ -889,3 +889,75 @@
         window.TE = TE;
     }
 })(window, document, typeof (exports) !== "undefined");
+
+; (function (window, document, commonjs) {
+    'use strict';
+
+    var comuns = [
+      "0000000000000",
+      "1111111111111",
+      "2222222222222",
+      "3333333333333",
+      "4444444444444",
+      "5555555555555",
+      "6666666666666",
+      "7777777777777",
+      "8888888888888",
+      "9999999999999"
+    ];
+
+    var CRC = {
+        validar: function (crc) {
+            if (!crc) return false;
+
+            if (isNaN(parseInt(crc[0]))) {
+                crc = ('0' + crc);
+            }
+
+            if (crc.slice(-2)[0] != '-') {
+                crc = crc + '-0';
+            }
+
+            if (!crc || comuns.indexOf(crc) !== -1) return false;
+
+            var cSig = ['AC', 'AL', 'AM', 'AP', 'BA', 'CE', 'CF', 'DF', 'ES', 'FR', 'GB', 'GO',
+                        'LG', 'MA', 'MG', 'MS', 'MT', 'NI', 'NR', 'PA', 'PB', 'PE', 'PF', 'PI',
+                        'PJ', 'PR', 'RJ', 'RN', 'RO', 'RR', 'RS', 'SC', 'SE', 'SP', 'TO'],
+                cCod = ['26', '09', '01', '25', '11', '05', '24', '21', '12', '99', '22', '20',
+                        '30', '03', '18', '23', '19', '98', '21', '02', '07', '08', '50', '04',
+                        '51', '15', '13', '06', '29', '27', '17', '16', '10', '14', '28'],
+                cSit = "OTSPK",
+                nMul = 1,
+                nTot = 0,
+                cCRC = crc.toUpperCase(),
+                uf = cCRC.substr(1, 2),
+                onde = cSig.indexOf(uf);
+
+            if (onde == -1) return false;
+
+            var cod = cCod[onde],
+                numero = cCRC.substr(4, 6),
+                sit = cCRC.substr(11, 1),
+                onde = cSit.indexOf(sit) + 1,
+                final = '1' + cod.toString() + numero.toString() + onde.toString(),
+                x = 0;
+
+            for (var i = final.length - 1; i >= 0; i--) {
+                x = (nMul++ > 9) ? 3 : nMul;
+                nTot += parseInt(final.substr(i, 1)) * x;
+            }
+
+            var dig = 11 - (nTot % 11);
+
+            if (dig == 10 || dig == 11) dig = 0;
+
+            return (dig == cCRC.substr(13, 1));
+        }
+    };
+
+    if (commonjs) {
+        module.exports = CRC;
+    } else {
+        window.CRC = CRC;
+    }
+})(window, document, typeof (exports) !== "undefined");
