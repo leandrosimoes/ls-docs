@@ -1,10 +1,14 @@
 # br-docs
 
-Validation for the most commom personal Brazilian documents (ID's). 
+Validation for the most commom personal Brazilian documents (ID's). See live sample [here](http://lesimoes.com.br/br-docs/).
+
+### Installation
+
+`bower install br-docs --save`
 
 ### How to?
 ---
-#### CPF - Natural person ID - (Cadastro de pessoa fÌsica)
+#### CPF - Natural person ID - (Cadastro de pessoa f√≠sica)
 ``` html
     <!-- Add this in your page -->
     <script src="cpf.js"></script>
@@ -15,7 +19,7 @@ Validation for the most commom personal Brazilian documents (ID's).
     CPF.validar('224.407.595-89'); //true or false
 ```
 ---
-#### CNPJ - Legal person ID (Cadastro de pessoa jurÌdica)
+#### CNPJ - Legal person ID (Cadastro de pessoa jur√≠dica)
 ``` html
     <!-- Add this in your page -->
     <script src="cnpj.js"></script>
@@ -26,7 +30,7 @@ Validation for the most commom personal Brazilian documents (ID's).
     CNPJ.validar('29.349.923/0001-35'); //true or false
 ```
 ---
-#### IE - State registration (InscriÁ„o estadual)
+#### IE - State registration (Inscri√ß√£o estadual)
 ``` html
     <!-- Add this in your page -->
     <script src="ie.js"></script>
@@ -35,7 +39,7 @@ Validation for the most commom personal Brazilian documents (ID's).
 ``` javascript
     //358.829.924.310 is a valid IE sample
     //'sp' is the state of Brazil that you want to validate, in this
-    //case 'sp' (S„o Paulo)
+    //case 'sp' (S√£o Paulo)
     IE.validar('358.829.924.310', 'sp'); //true or false
     
     //Return true if in some of states of Brazil this IE is valid
@@ -44,10 +48,10 @@ Validation for the most commom personal Brazilian documents (ID's).
 
     //Return the state initials that this IE is valid
     //358.829.924.310 is a valid IE sample
-    IE.obterEstadoValido('358.829.924.310') //in this case return 'sp' (S„o Paulo)
+    IE.obterEstadoValido('358.829.924.310') //in this case return 'sp' (S√£o Paulo)
 ```
 ---
-#### PIS - Social integration program ID (Programa de integraÁ„o social)
+#### PIS - Social integration program ID (Programa de integra√ß√£o social)
 ``` html
     <!-- Add this in your page -->
     <script src="pis.js"></script>
@@ -69,7 +73,7 @@ Validation for the most commom personal Brazilian documents (ID's).
     CNH.validar('05493872845'); //true or false
 ```
 ---
-#### TE - Voter registration ID (TÌtulo de Eleitor)
+#### TE - Voter registration ID (T√≠tulo de Eleitor)
 ``` html
     <!-- Add this in your page -->
     <script src="te.js"></script>
@@ -80,7 +84,7 @@ Validation for the most commom personal Brazilian documents (ID's).
     TE.validar('721761811708'); //true or false
 ```
 ---
-#### CC - Credit cards (Cart„o de crÈdito)
+#### CC - Credit cards (Cart√£o de cr√©dito)
 ``` html
     <!-- Add this in your page -->
     <script src="cc.js"></script>
