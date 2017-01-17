@@ -1,0 +1,25 @@
+{
+  "name": "br-docs",
+  "homepage": "https://github.com/leandrosimoes/br-docs",
+  "authors": [
+    "Leandro Simões <leandro.simoes@outlook.com>"
+  ],
+  "description": "Validation for the most commom personal Brazilian documents (ID's)",
+  "main": "\"src/br-docs.js\"",
+  "keywords": [
+    "validation",
+    "br",
+    "brazil",
+    "ids",
+    "id",
+    "documents"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
