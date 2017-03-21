@@ -1,11 +1,11 @@
 {
-  "name": "br-docs",
-  "homepage": "https://github.com/leandrosimoes/br-docs",
+  "name": "ls-docs",
+  "homepage": "https://github.com/leandrosimoes/ls-docs",
   "authors": [
     "Leandro Simões <leandro.simoes@outlook.com>"
   ],
   "description": "Validation for the most commom personal Brazilian documents (ID's)",
-  "main": "\"src/br-docs.js\"",
+  "main": "\"src/ls-docs.js\"",
   "keywords": [
     "validation",
     "br",
