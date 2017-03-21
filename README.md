@@ -1,4 +1,4 @@
-# br-docs
+# ls-docs
 
 Validation for the most commom personal Brazilian documents (ID's). See live sample [here](http://lesimoes.com.br/br-docs/).
 
