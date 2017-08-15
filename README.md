@@ -4,7 +4,7 @@ Validation for the most commom personal Brazilian documents (ID's). See live sam
 
 ### Installation
 
-`bower install br-docs --save`
+`bower install ls-docs --save`
 
 ### How to?
 ---
@@ -111,5 +111,5 @@ If you don't want to add each one javascript file in your page, just use this gl
 
 ``` html
     <!-- Add this in your page -->
-    <script src="br-docs.js"></script>
+    <script src="ls-docs.js"></script>
 ```
