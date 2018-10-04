@@ -82,4 +82,3 @@ Now just use like this:
     //Return the brand that this CC is valid
     //4539.8633.3204.0867 is a valid IE sample
     lsDocs.CC.getValidCard('4539.8633.3204.0867') //in this case return lsDocs.CC.BRANDS.VISA
-```
