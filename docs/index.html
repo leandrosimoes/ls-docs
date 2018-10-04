@@ -1,16 +1,19 @@
 ﻿<!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <title>LS-DOCS</title>
     <meta charset="utf-8" />
 
     <!-- Not necessary, just for tests -->
-    <script  src="https://code.jquery.com/jquery-1.12.4.min.js"  integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
 
-    <script src="ls-docs.js"></script>
+    <script src="./js/ls-docs.min.js"></script>
 
     <style>
-        html, body { 
+        html,
+        body {
             width: 100%;
             padding: 0;
             margin: 0;
@@ -26,7 +29,9 @@
             width: 100%;
         }
 
-        td, tr, th {
+        td,
+        tr,
+        th {
             border: 1px solid #ccc;
             padding: 5px;
         }
@@ -42,8 +47,9 @@
         }
     </style>
 </head>
+
 <body>
-    
+
     <!-- http://tholman.com/github-corners/ -->
     <a target="_blank" href="https://github.com/leandrosimoes/ls-docs" class="github-corner" aria-label="View source on Github">
         <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#424242; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
@@ -59,20 +65,23 @@
         .github-corner svg {
             z-index: 9999999;
         }
-        
+
         .github-corner:hover .octo-arm {
             animation: octocat-wave 560ms ease-in-out
         }
 
         @keyframes octocat-wave {
+
             0%,
             100% {
                 transform: rotate(0)
             }
+
             20%,
             60% {
                 transform: rotate(-25deg)
             }
+
             40%,
             80% {
                 transform: rotate(10deg)
@@ -83,6 +92,7 @@
             .github-corner:hover .octo-arm {
                 animation: none
             }
+
             .github-corner .octo-arm {
                 animation: octocat-wave 560ms ease-in-out
             }
@@ -105,22 +115,24 @@
         </table>
     </div>
 </body>
+
 </html>
 <script>
+    let lsDocs = new LSDocs();
     var template = '<tr class="{{valid}}"><td>{{doc}}</td><td>{{number}}</td><td>{{details}}</td><td class="column-valid">{{valid}}</td></tr>',
-        validIes = [{ state: 'sp', number: '527.012.306.552' }, { state: 'pa', number: '15-378971-9' }, { state: 'ma', number: '12231403-4' }],
+        validIes = [{ state: lsDocs.IE.STATES.SAO_PAULO, number: '527.012.306.552' }, { state: lsDocs.IE.STATES.PARA, number: '15-378971-9' }, { state: lsDocs.IE.STATES.MARANHAO, number: '12231403-4' }],
         validCpfs = ['513.505.215-15', '783.657.272-26', '302.471.512-62'],
         validCnpjs = ['96.785.019/0001-60', '57.401.192/0001-65', '11.600.721/0001-59'],
         validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
         validCnhs = ['17471014748', '05493872845', '17222849758'],
         validTes = ['721761811708', '757813481783', '438576861716'],
-        validCCs = [{ brand: CC.cartoes.visa, number: '4539.8633.3204.0867' }, { brand: CC.cartoes.mastercard, number: '5557.6618.0397.3341' }, { brand: CC.cartoes.amex, number: '3464.3231.7114.245' }, { brand: CC.cartoes.dinersClub, number: '3024.2888.3095.17' }, { brand: CC.cartoes.jcb, number: '3595.5927.6443.8033' }, { brand: CC.cartoes.discover, number: '6011.3325.2630.9860' }],
+        validCCs = [{ brand: lsDocs.CC.BRANDS.VISA.toString().toLowerCase(), number: '4539.8633.3204.0867' }, { brand: lsDocs.CC.BRANDS.MASTERCARD.toString().toLowerCase(), number: '5557.6618.0397.3341' }, { brand: lsDocs.CC.BRANDS.AMEX.toString().toLowerCase(), number: '3464.3231.7114.245' }, { brand: lsDocs.CC.BRANDS.DINERSCLUB, number: '3024.2888.3095.17' }, { brand: lsDocs.CC.BRANDS.JCB, number: '3595.5927.6443.8033' }, { brand: lsDocs.CC.BRANDS.DISCOVER, number: '6011.3325.2630.9860' }],
         $area = $('#items');
 
     for (var i = 0; i < validIes.length; i++) {
         var number = validIes[i].number,
             state = validIes[i].state,
-            valid = IE.validar(number, state);
+            valid = lsDocs.IE.validate(number, state);
 
         $area.append(
             template
@@ -134,7 +146,7 @@
 
     for (var i = 0; i < validCpfs.length; i++) {
         var number = validCpfs[i],
-            valid = CPF.validar(number);
+            valid = lsDocs.CPF.validate(number);
 
         $area.append(
             template
@@ -148,7 +160,7 @@
 
     for (var i = 0; i < validCnpjs.length; i++) {
         var number = validCnpjs[i],
-            valid = CNPJ.validar(number);
+            valid = lsDocs.CNPJ.validate(number);
 
         $area.append(
             template
@@ -162,7 +174,7 @@
 
     for (var i = 0; i < validPises.length; i++) {
         var number = validPises[i],
-            valid = PIS.validar(number);
+            valid = lsDocs.PIS.validate(number);
 
         $area.append(
             template
@@ -176,7 +188,7 @@
 
     for (var i = 0; i < validCnhs.length; i++) {
         var number = validCnhs[i],
-            valid = CNH.validar(number, true);
+            valid = lsDocs.CNH.validate(number, true);
 
         $area.append(
             template
@@ -190,7 +202,7 @@
 
     for (var i = 0; i < validTes.length; i++) {
         var number = validTes[i],
-            valid = TE.validar(number, true);
+            valid = lsDocs.TE.validate(number, true);
 
         $area.append(
             template
@@ -205,7 +217,7 @@
     for (var i = 0; i < validIes.length; i++) {
         var number = validCCs[i].number,
             brand = validCCs[i].brand,
-            valid = CC.validar(number, brand);
+            valid = lsDocs.CC.validate(number, brand);
 
         $area.append(
             template

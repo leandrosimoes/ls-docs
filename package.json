@@ -1,0 +1,39 @@
+{
+  "name": "ls-docs",
+  "version": "2.0.0",
+  "description": "Validation for the most commom personal Brazilian documents (ID's)",
+  "main": "./src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "build-prod": "webpack --mode production",
+    "build-dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leandrosimoes/ls-docs.git"
+  },
+  "keywords": [
+    "validation",
+    "br",
+    "brazil",
+    "ids",
+    "id",
+    "documents"
+  ],
+  "author": "Leandro Simões <leandro.simoes@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/leandrosimoes/ls-docs/issues"
+  },
+  "homepage": "https://github.com/leandrosimoes/ls-docs#readme",
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "style-loader": "^0.23.0",
+    "ts-loader": "^4.5.0",
+    "typescript": "^2.9.2",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
+  }
+}
