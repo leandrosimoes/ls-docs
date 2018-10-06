@@ -118,21 +118,30 @@
 
 </html>
 <script>
-    let lsDocs = new LSDocs();
+    let { IE, CNPJ, CPF, PIS, CNH, TE, CC } = window.LSDocs;
+
+    IE = new IE();
+    CNPJ = new CNPJ();
+    CPF = new CPF();
+    PIS = new PIS();
+    CNH = new CNH();
+    TE = new TE();
+    CC = new CC();
+
     var template = '<tr class="{{valid}}"><td>{{doc}}</td><td>{{number}}</td><td>{{details}}</td><td class="column-valid">{{valid}}</td></tr>',
-        validIes = [{ state: lsDocs.IE.STATES.SAO_PAULO, number: '527.012.306.552' }, { state: lsDocs.IE.STATES.PARA, number: '15-378971-9' }, { state: lsDocs.IE.STATES.MARANHAO, number: '12231403-4' }],
+        validIes = [{ state: IE.STATES.SAO_PAULO, number: '527.012.306.552' }, { state: IE.STATES.PARA, number: '15-378971-9' }, { state: IE.STATES.MARANHAO, number: '12231403-4' }],
         validCpfs = ['513.505.215-15', '783.657.272-26', '302.471.512-62'],
         validCnpjs = ['96.785.019/0001-60', '57.401.192/0001-65', '11.600.721/0001-59'],
         validPises = ['120.5352.512-8', '120.8629.753-1', '120.1757.143-3'],
         validCnhs = ['17471014748', '05493872845', '17222849758'],
         validTes = ['721761811708', '757813481783', '438576861716'],
-        validCCs = [{ brand: lsDocs.CC.BRANDS.VISA.toString().toLowerCase(), number: '4539.8633.3204.0867' }, { brand: lsDocs.CC.BRANDS.MASTERCARD.toString().toLowerCase(), number: '5557.6618.0397.3341' }, { brand: lsDocs.CC.BRANDS.AMEX.toString().toLowerCase(), number: '3464.3231.7114.245' }, { brand: lsDocs.CC.BRANDS.DINERSCLUB, number: '3024.2888.3095.17' }, { brand: lsDocs.CC.BRANDS.JCB, number: '3595.5927.6443.8033' }, { brand: lsDocs.CC.BRANDS.DISCOVER, number: '6011.3325.2630.9860' }],
+        validCCs = [{ brand: CC.BRANDS.VISA.toString().toLowerCase(), number: '4539.8633.3204.0867' }, { brand: CC.BRANDS.MASTERCARD.toString().toLowerCase(), number: '5557.6618.0397.3341' }, { brand: CC.BRANDS.AMEX.toString().toLowerCase(), number: '3464.3231.7114.245' }, { brand: CC.BRANDS.DINERSCLUB, number: '3024.2888.3095.17' }, { brand: CC.BRANDS.JCB, number: '3595.5927.6443.8033' }, { brand: CC.BRANDS.DISCOVER, number: '6011.3325.2630.9860' }],
         $area = $('#items');
 
     for (var i = 0; i < validIes.length; i++) {
         var number = validIes[i].number,
             state = validIes[i].state,
-            valid = lsDocs.IE.validate(number, state);
+            valid = IE.validate(number, state);
 
         $area.append(
             template
@@ -146,7 +155,7 @@
 
     for (var i = 0; i < validCpfs.length; i++) {
         var number = validCpfs[i],
-            valid = lsDocs.CPF.validate(number);
+            valid = CPF.validate(number);
 
         $area.append(
             template
@@ -160,7 +169,7 @@
 
     for (var i = 0; i < validCnpjs.length; i++) {
         var number = validCnpjs[i],
-            valid = lsDocs.CNPJ.validate(number);
+            valid = CNPJ.validate(number);
 
         $area.append(
             template
@@ -174,7 +183,7 @@
 
     for (var i = 0; i < validPises.length; i++) {
         var number = validPises[i],
-            valid = lsDocs.PIS.validate(number);
+            valid = PIS.validate(number);
 
         $area.append(
             template
@@ -188,7 +197,7 @@
 
     for (var i = 0; i < validCnhs.length; i++) {
         var number = validCnhs[i],
-            valid = lsDocs.CNH.validate(number, true);
+            valid = CNH.validate(number, true);
 
         $area.append(
             template
@@ -202,7 +211,7 @@
 
     for (var i = 0; i < validTes.length; i++) {
         var number = validTes[i],
-            valid = lsDocs.TE.validate(number, true);
+            valid = TE.validate(number, true);
 
         $area.append(
             template
@@ -217,7 +226,7 @@
     for (var i = 0; i < validIes.length; i++) {
         var number = validCCs[i].number,
             brand = validCCs[i].brand,
-            valid = lsDocs.CC.validate(number, brand);
+            valid = CC.validate(number, brand);
 
         $area.append(
             template
