@@ -4,7 +4,7 @@ const mode = isProduction ? 'production' : 'development';
 const configNode = {
     mode,
     entry: {
-        '../dist/index': './src/ts/index',
+        '../dist/node/index': './src/ts/index',
     },
     output: {
         filename: '[name].js',
@@ -28,7 +28,8 @@ const configNode = {
 const configNodeWeb = {
     mode,
     entry: {
-        '../docs/js/ls-docs.min': './src/ts/index',
+        '../dist/web/index': './src/ts/index',
+        '../docs/js/index': './src/ts/index',
     },
     output: {
         filename: '[name].js'

@@ -5,7 +5,7 @@
     "Leandro Simões <leandro.simoes@outlook.com>"
   ],
   "description": "Validation for the most commom personal Brazilian documents (ID's)",
-  "main": "dist/index.js",
+  "main": "dist/web/index.js",
   "keywords": [
     "validation",
     "br",
@@ -17,6 +17,6 @@
   "license": "MIT",
   "ignore": [
     "*",
-    "!dist/*"
+    "!dist/web/*"
   ]
 }
