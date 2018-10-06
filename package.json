@@ -1,6 +1,6 @@
 {
   "name": "ls-docs",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Validation for the most commom personal Brazilian documents (ID's)",
   "main": "./dist/node/index",
   "scripts": {
