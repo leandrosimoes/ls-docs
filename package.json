@@ -1,9 +1,8 @@
 {
   "name": "ls-docs",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "Validation for the most commom personal Brazilian documents (ID's)",
   "main": "./dist/index",
-  "typings": "./dist/index",
   "scripts": {
     "build-prod": "webpack --mode production",
     "build-dev": "webpack --mode development"
