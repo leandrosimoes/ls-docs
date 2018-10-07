@@ -1,7 +1,7 @@
 import { CARD_BRANDS } from './enums';
 
 export default class CC {
-    BRANDS: any;
+    BRANDS: typeof CARD_BRANDS;
 
     private cardsRegex: any = {
         visa: /^4[0-9]{12}(?:[0-9]{3})/,
@@ -13,7 +13,7 @@ export default class CC {
     }
 
     constructor() {
-        this.BRANDS = { ...CARD_BRANDS }
+        this.BRANDS = CARD_BRANDS
     }
 
     validate(cardNumber: string, cardBrand: CARD_BRANDS = CARD_BRANDS.NONE): boolean {
@@ -41,9 +41,10 @@ export default class CC {
 
         if (!cardNumber) return CARD_BRANDS.NONE;
 
-        for (let card in CARD_BRANDS) {
-            if (cardNumber.match(this.cardsRegex[CARD_BRANDS[card]]) !== null) {
-                switch (card) {
+        for (let brand in CARD_BRANDS) {
+            let parsedBrand = (<any>CARD_BRANDS[brand])
+            if (cardNumber.match(this.cardsRegex[parsedBrand]) !== null) {
+                switch (parsedBrand) {
                     case CARD_BRANDS.VISA:
                         return CARD_BRANDS.VISA
                     case CARD_BRANDS.MASTERCARD:

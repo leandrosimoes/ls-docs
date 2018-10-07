@@ -6,23 +6,19 @@ import {
 } from './states-validations';
 
 export default class ieNumber {
-    STATES: any;
+    STATES: typeof BRAZIL_STATES;
 
     constructor() {
         this.STATES = { ...BRAZIL_STATES }
     }
 
     validate(ieNumber: string, state: BRAZIL_STATES = BRAZIL_STATES.NONE): boolean {
-        if (state === undefined) {
+        if (state === BRAZIL_STATES.NONE) {
             throw new Error('Invalid state');
         }
 
         if (!ieNumber) {
             throw new Error('ieNumber must be informed');
-        }
-
-        if (typeof ieNumber !== 'string') {
-            throw new Error('ieNumber deve ser string ou array de strings');
         }
 
         if (ieNumber.match(/^ISENTO$/i)) {
@@ -101,7 +97,11 @@ export default class ieNumber {
 
     getValidState(ieNumber: string): BRAZIL_STATES {
         for (let state in BRAZIL_STATES) {
-            if (!!this.validate(ieNumber, (<BRAZIL_STATES>state))) return (<BRAZIL_STATES>state)
+            let parsedState = (<any>BRAZIL_STATES[state])
+
+            if (parsedState === BRAZIL_STATES.NONE) continue;
+
+            if (!!this.validate(ieNumber, parsedState)) return parsedState
         }
 
         return BRAZIL_STATES.NONE;
