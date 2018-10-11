@@ -2,7 +2,7 @@
 
 Validation for the most commom personal Brazilian documents (ID's). See live sample [here](http://lesimoes.com.br/ls-docs/).
 
-[![Build Status](https://travis-ci.org/leandrosimoes/ls-docs.svg?branch=master)](https://travis-ci.org/leandrosimoes/ls-docs)
+[![Build Status](https://travis-ci.org/leandrosimoes/ls-docs.svg?branch=master)](https://travis-ci.org/leandrosimoes/ls-docs) [![npm version](https://badge.fury.io/js/ls-docs.svg)](https://badge.fury.io/js/ls-docs)
 
 ### Installation
 
