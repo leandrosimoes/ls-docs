@@ -2,7 +2,10 @@
 
 Validation for the most commom personal Brazilian documents (ID's). See live sample [here](http://lesimoes.com.br/ls-docs/).
 
-[![Build Status](https://travis-ci.org/leandrosimoes/ls-docs.svg?branch=master)](https://travis-ci.org/leandrosimoes/ls-docs) [![npm version](https://badge.fury.io/js/ls-docs.svg)](https://badge.fury.io/js/ls-docs) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4219f32164db4826879abe1fc3d4e25b)](https://www.codacy.com/app/leandrosimoes/ls-docs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leandrosimoes/ls-docs&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/leandrosimoes/ls-docs.svg?branch=master)](https://travis-ci.org/leandrosimoes/ls-docs) 
+[![npm version](https://badge.fury.io/js/ls-docs.svg)](https://badge.fury.io/js/ls-docs) 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4219f32164db4826879abe1fc3d4e25b)](https://www.codacy.com/app/leandrosimoes/ls-docs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leandrosimoes/ls-docs&amp;utm_campaign=Badge_Grade)
+[![CircleCI](https://circleci.com/gh/leandrosimoes/ls-docs.svg?style=svg)](https://circleci.com/gh/leandrosimoes/ls-docs)
 
 ### Installation
 
