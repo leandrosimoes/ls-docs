@@ -24,7 +24,7 @@ workflows:
   tagged-build:
     jobs:
       - build
-      - deploy:
+      - publish:
           requires:
             - build
           filters:
