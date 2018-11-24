@@ -13,7 +13,8 @@ Validation for the most commom personal Brazilian documents (ID's). See live sam
 
 ### How to?
 
-Then you have to instanceate the class like this
+Import what id do you want to validate
+
 ```javascript
 let { CC, CPF, CNPJ, IE, PIS, TE, CNH } = require('ls-docs')
 ```

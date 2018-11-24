@@ -120,14 +120,6 @@
 <script>
     let { IE, CNPJ, CPF, PIS, CNH, TE, CC } = window.LSDocs;
 
-    IE = new IE();
-    CNPJ = new CNPJ();
-    CPF = new CPF();
-    PIS = new PIS();
-    CNH = new CNH();
-    TE = new TE();
-    CC = new CC();
-
     var template = '<tr class="{{valid}}"><td>{{doc}}</td><td>{{number}}</td><td>{{details}}</td><td class="column-valid">{{valid}}</td></tr>',
         validIes = [{ state: IE.STATES.SAO_PAULO, number: '527.012.306.552' }, { state: IE.STATES.PARA, number: '15-378971-9' }, { state: IE.STATES.MARANHAO, number: '12231403-4' }],
         validCpfs = ['513.505.215-15', '783.657.272-26', '302.471.512-62'],
