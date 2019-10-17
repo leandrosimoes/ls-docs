@@ -30,7 +30,7 @@ export default class CC {
         if (!cardNumber) return false;
 
         for (var card in CARD_BRANDS) {
-            return cardNumber.match(this.cardsRegex[CARD_BRANDS[card]]) !== null
+            return cardNumber.match(this.cardsRegex[(CARD_BRANDS as any)[card]]) !== null
         }
 
         return false;
@@ -42,7 +42,7 @@ export default class CC {
         if (!cardNumber) return CARD_BRANDS.NONE;
 
         for (let brand in CARD_BRANDS) {
-            let parsedBrand = (<any>CARD_BRANDS[brand])
+            let parsedBrand = ((CARD_BRANDS as any)[brand])
             if (cardNumber.match(this.cardsRegex[parsedBrand]) !== null) {
                 switch (parsedBrand) {
                     case CARD_BRANDS.VISA:

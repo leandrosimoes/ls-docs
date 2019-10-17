@@ -97,7 +97,7 @@ export default class ieNumber {
 
     getValidState(ieNumber: string): BRAZIL_STATES {
         for (let state in BRAZIL_STATES) {
-            let parsedState = (<any>BRAZIL_STATES[state])
+            let parsedState = (BRAZIL_STATES as any)[state]
 
             if (parsedState === BRAZIL_STATES.NONE) continue;
 
