@@ -4,6 +4,8 @@ Validation for the most commom personal Brazilian documents (ID's). See live sam
 
 [![npm version](https://badge.fury.io/js/ls-docs.svg)](https://badge.fury.io/js/ls-docs) 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/4219f32164db4826879abe1fc3d4e25b)](https://www.codacy.com/app/leandrosimoes/ls-docs?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=leandrosimoes/ls-docs&amp;utm_campaign=Badge_Grade)
+![Node CI](https://github.com/leandrosimoes/ls-docs/workflows/Node%20CI/badge.svg)
+![Node.js Package](https://github.com/leandrosimoes/ls-docs/workflows/Node%2Ejs%20Package/badge.svg)
 
 ### Installation
 
