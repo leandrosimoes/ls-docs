@@ -1,7 +1,7 @@
-import "jasmine";
-import { PIS } from '../src/ts/index';
+import 'jasmine'
+import { PIS } from '../src/ts/index'
 
-describe("PIS", () => {
+describe('PIS', () => {
     it('Must be defined', () => {
         expect(PIS).toBeDefined()
         expect(PIS).not.toBeUndefined()

@@ -1,17 +1,17 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class PE {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
-        let base = value.substring(0, value.length - 2);
+        let base = value.substring(0, value.length - 2)
 
-        let firstRest = helpers.getModule(base);
-        let first = 11 - firstRest >= 10 ? 0 : 11 - firstRest;
+        let firstRest = helpers.getModule(base)
+        let first = 11 - firstRest >= 10 ? 0 : 11 - firstRest
 
-        let secondRest = helpers.getModule(base + first);
-        let second = 11 - secondRest >= 10 ? 0 : 11 - secondRest;
+        let secondRest = helpers.getModule(base + first)
+        let second = 11 - secondRest >= 10 ? 0 : 11 - secondRest
 
-        return value === base + first + second;
+        return value === base + first + second
     }
 }

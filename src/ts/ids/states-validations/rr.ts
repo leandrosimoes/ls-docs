@@ -1,20 +1,20 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class RR {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
         if (helpers.isDifferentFrom(value)) {
-            return false;
+            return false
         }
 
         if (!value.startsWith('24')) {
-            return false;
+            return false
         }
 
-        let base = helpers.getFirstXDigits(value);
-        let digit = helpers.getModule(base, [8, 7, 6, 5, 4, 3, 2, 1], 9);
+        let base = helpers.getFirstXDigits(value)
+        let digit = helpers.getModule(base, [8, 7, 6, 5, 4, 3, 2, 1], 9)
 
-        return value === base + digit;
+        return value === base + digit
     }
 }

@@ -1,13 +1,13 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class AM {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
         if (helpers.isDifferentFrom(value)) {
-            return false;
+            return false
         }
 
-        return helpers.baseCalc(value, '', false);
+        return helpers.baseCalc(value, '', false)
     }
 }

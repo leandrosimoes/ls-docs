@@ -1,9 +1,9 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class SC {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
-        return helpers.baseCalc(value, '', false);
+        return helpers.baseCalc(value, '', false)
     }
 }

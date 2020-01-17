@@ -1,7 +1,7 @@
-import "jasmine";
-import { CPF } from '../src/ts/index';
+import 'jasmine'
+import { CPF } from '../src/ts/index'
 
-describe("CPF", () => {
+describe('CPF', () => {
     it('Must be defined', () => {
         expect(CPF).toBeDefined()
         expect(CPF).not.toBeUndefined()

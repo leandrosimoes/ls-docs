@@ -1,13 +1,13 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class MS {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
         if (!value.startsWith('28')) {
-            return false;
+            return false
         }
 
-        return helpers.baseCalc(value, '', false);
+        return helpers.baseCalc(value, '', false)
     }
 }

@@ -1,31 +1,58 @@
-import { BRAZIL_STATES } from './enums';
+import { BRAZIL_STATES } from './enums'
 import {
-    AC, AL, AM, AP, BA, CE, DF, ES,
-    GO, MA, MG, MS, MT, PA, PB, PE, PI,
-    PR, RJ, RN, RO, RR, RS, SC, SE, SP, TO
-} from './states-validations';
+    AC,
+    AL,
+    AM,
+    AP,
+    BA,
+    CE,
+    DF,
+    ES,
+    GO,
+    MA,
+    MG,
+    MS,
+    MT,
+    PA,
+    PB,
+    PE,
+    PI,
+    PR,
+    RJ,
+    RN,
+    RO,
+    RR,
+    RS,
+    SC,
+    SE,
+    SP,
+    TO,
+} from './states-validations'
 
 export default class ieNumber {
-    STATES: typeof BRAZIL_STATES;
+    STATES: typeof BRAZIL_STATES
 
     constructor() {
         this.STATES = { ...BRAZIL_STATES }
     }
 
-    validate(ieNumber: string, state: BRAZIL_STATES = BRAZIL_STATES.NONE): boolean {
+    validate(
+        ieNumber: string,
+        state: BRAZIL_STATES = BRAZIL_STATES.NONE
+    ): boolean {
         if (state === BRAZIL_STATES.NONE) {
-            throw new Error('Invalid state');
+            throw new Error('Invalid state')
         }
 
         if (!ieNumber) {
-            throw new Error('ieNumber must be informed');
+            throw new Error('ieNumber must be informed')
         }
 
         if (ieNumber.match(/^ISENTO$/i)) {
-            return true;
+            return true
         }
 
-        ieNumber = ieNumber.replace(/[\.|\-|\/|\s]/g, '');
+        ieNumber = ieNumber.replace(/[\.|\-|\/|\s]/g, '')
 
         if (/^\d+$/.test(ieNumber) || state === BRAZIL_STATES.SAO_PAULO) {
             switch (state) {
@@ -84,11 +111,11 @@ export default class ieNumber {
                 case BRAZIL_STATES.TOCANTINS:
                     return TO.validate(ieNumber)
                 default:
-                    throw new Error('Invalid state');
+                    throw new Error('Invalid state')
             }
         }
 
-        return false;
+        return false
     }
 
     hasValidState(ieNumber: string): Boolean {
@@ -99,11 +126,11 @@ export default class ieNumber {
         for (let state in BRAZIL_STATES) {
             let parsedState = (BRAZIL_STATES as any)[state]
 
-            if (parsedState === BRAZIL_STATES.NONE) continue;
+            if (parsedState === BRAZIL_STATES.NONE) continue
 
             if (!!this.validate(ieNumber, parsedState)) return parsedState
         }
 
-        return BRAZIL_STATES.NONE;
+        return BRAZIL_STATES.NONE
     }
 }

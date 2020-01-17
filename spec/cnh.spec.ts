@@ -1,7 +1,7 @@
-import "jasmine";
-import { CNH } from '../src/ts/index';
+import 'jasmine'
+import { CNH } from '../src/ts/index'
 
-describe("CNH", () => {
+describe('CNH', () => {
     it('Must be defined', () => {
         expect(CNH).toBeDefined()
         expect(CNH).not.toBeUndefined()

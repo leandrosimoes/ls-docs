@@ -1,23 +1,23 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class AL {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
         if (helpers.isDifferentFrom(value)) {
-            return false;
+            return false
         }
 
         if (!value.startsWith('24')) {
-            return false;
+            return false
         }
 
-        let base = helpers.getFirstXDigits(value);
+        let base = helpers.getFirstXDigits(value)
 
-        let rest = helpers.getModule(base) * 10;
-        rest = rest - (parseInt((rest / 11).toString(), 10) * 11);
-        let digit = rest === 10 ? 0 : rest;
+        let rest = helpers.getModule(base) * 10
+        rest = rest - parseInt((rest / 11).toString(), 10) * 11
+        let digit = rest === 10 ? 0 : rest
 
-        return value === base + digit;
+        return value === base + digit
     }
 }

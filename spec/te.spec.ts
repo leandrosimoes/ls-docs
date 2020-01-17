@@ -1,7 +1,7 @@
-import "jasmine";
-import { TE } from '../src/ts/index';
+import 'jasmine'
+import { TE } from '../src/ts/index'
 
-describe("TE", () => {
+describe('TE', () => {
     it('Must be defined', () => {
         expect(TE).toBeDefined()
         expect(TE).not.toBeUndefined()

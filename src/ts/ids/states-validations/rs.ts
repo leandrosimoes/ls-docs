@@ -1,14 +1,14 @@
-import * as helpers from '../helpers';
+import * as helpers from '../helpers'
 
 export default class RS {
-    constructor() { }
+    constructor() {}
 
     static validate(value: string): boolean {
         if (helpers.isDifferentFrom(value, 10)) {
-            return false;
+            return false
         }
 
-        let base = helpers.getFirstXDigits(value, 9);
-        return helpers.baseCalc(value, base, true);
+        let base = helpers.getFirstXDigits(value, 9)
+        return helpers.baseCalc(value, base, true)
     }
 }
